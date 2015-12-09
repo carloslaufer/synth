@@ -6,7 +6,7 @@ module Serializer
     end
 
     if self.class.to_s != 'Array'
-      case self.classes.last.to_s
+      case self.class.to_s
         when 'IndexEntryDecorator'
           self.IndexEntryDecorator_serializer
         when 'SHDM::ContextIndex'
@@ -85,7 +85,11 @@ module Serializer
         '@type' => get_class_name(self),
         "@title" => self.index_title,
         "@name" => self.index_name,
-        "@nodes" => self.nodes.map{ |node| {:value => "#{node.to_s}#{node.parameters_to_url}" , :label => node.rdfs::label.first, :type => get_class_name(node) } }
+        "@nodes" => self.entries.map{ |node| {
+            :value => "#{node.to_s}#{node.parameters_to_url}" ,
+            :label => node.rdfs::label.first,
+            :type => get_class_name(node) }
+        }
       }
     end
     
@@ -108,10 +112,10 @@ module Serializer
           '@label' => self.rdfs::label || [self.compact_uri],
           '@navigational' => {
             '@position' => self.node_position,
-            '@next' => self.next_node_anchor.respond_to?(:target_url) ? self.next_node_anchor.target_url(true) : nil,
-            '@previous' => self.previous_node_anchor.respond_to?(:target_url) ? self.previous_node_anchor.target_url(true) : nil,
-            '@next_uri' => self.next_node_anchor.respond_to?(:target_url) ? self.next_node_anchor.target_url : nil,
-            '@previous_uri' => self.previous_node_anchor.respond_to?(:target_url) ? self.previous_node_anchor.target_url : nil
+            #'@next' => self.next_node_anchor.respond_to?(:target_url) ? self.next_node_anchor.target_url(true) : nil,
+            #'@previous' => self.previous_node_anchor.respond_to?(:target_url) ? self.previous_node_anchor.target_url(true) : nil,
+            #'@next_uri' => self.next_node_anchor.respond_to?(:target_url) ? self.next_node_anchor.target_url : nil,
+            #'@previous_uri' => self.previous_node_anchor.respond_to?(:target_url) ? self.previous_node_anchor.target_url : nil
           }
       }
 

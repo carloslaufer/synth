@@ -69,7 +69,12 @@ class RestController < ApplicationController
   def node
     resource_id = params.delete(:r)
     context_id = params.delete(:c)
-    resource    = resource_id.nil? ? {} : SHDM::NodeDecorator.new(resource_id, context_id)
+    context    = SHDM::Context.find(context_id)
+    context   = context.new(context_id)
+
+    current_node = NodeDecorator.new(RDFS::Resource.new(resource_id), context)
+    current_node ||= context.nodes.first
+    resource    = resource_id.nil? ? {} : current_node
     respond_to do |format|
       format.json  { render :json => resource.serialize }
       format.text { render :text => resource.inspect }
