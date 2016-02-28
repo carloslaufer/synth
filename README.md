@@ -62,3 +62,59 @@ Open on your internet browser: [http://localhost:3000/mira.html?app=app](http://
 
 [REST examples](doc/Rest.md)
 
+INSTALLING WITH DOCKER
+----------------------
+
+#### 1) Install Docker
+
+  [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
+  
+  On Windows and Mac OS, you can use Docker Toolbox:
+  
+  [https://www.docker.com/products/docker-toolbox](https://www.docker.com/products/docker-toolbox)
+  
+#### 2) Run container of synth by the first time:
+ 
+  this can take while.
+
+```
+  $ docker run --name my_synth -p 3000:3000 tecweb/synth
+```
+
+  
+#### 3) Access synth:
+
+  [http://192.168.99.100:3000](http://192.168.99.100:3000)
+  
+#### 4) Access Mira:
+
+  [http://192.168.99.100/mira.html:3000](http://192.168.99.100/html:3000)
+  
+#### 5) Stop synth container:
+
+```
+  $ docker stop my_synth
+```
+  
+#### 6) Running other times to not lose your data and applications:
+
+```
+  $ docker start my_synth
+```
+
+Export your application
+=======================
+
+#### 1) Run container compress command:
+
+  Considering your application is called *my_app*
+
+```
+  $ docker exec my_synth tar -zcvf public/my_app.tar.gz applications/my_app
+```
+
+#### 2) Download compress file from your browser:
+
+  [http://192.168.99.100:3000/my_app.tar.gz](http://192.168.99.100:3000/my_app.tar.gz)
+
+
