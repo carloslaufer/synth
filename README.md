@@ -1,5 +1,8 @@
-INTRODUCTION
-------------
+Synth
+-----
+
+[![Docker Stars](https://img.shields.io/docker/stars/tecweb/synth.svg?maxAge=2592000)](https://hub.docker.com/r/tecweb/synth/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tecweb/synth.svg?maxAge=2592000)](https://hub.docker.com/r/tecweb/synth/)
 
 Synth is a development environment for building hypermedia applications that are modeled 
 according to SHDM (Semantic Hypermedia Design Method). It provides a set of modules that 
