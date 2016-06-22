@@ -48,17 +48,13 @@ MIRA files
 ----------
 
 * Locations:
-
-
+``` bash
     $ cd /path/to/synth/public/js
-    
-    
+```    
 * Path to edit your interface:
-
-
+``` bash
     $ edit /path/to/synth/public/js/app.js
-
- 
+```
 * RUN your application:
     
 Open on your internet browser: [http://localhost:3000/mira.html?app=app](http://localhost:3000/mira.html?app=app)
@@ -91,17 +87,17 @@ INSTALLING WITH DOCKER
   
 #### 4) Access Mira:
 
-  [http://192.168.99.100/mira.html:3000](http://192.168.99.100/html:3000)
+  [http://192.168.99.100:3000/mira.html](http://192.168.99.100:3000/html)
   
 #### 5) Stop synth container:
 
-```
+``` bash
   $ docker stop my_synth
 ```
   
 #### 6) Running other times to not lose your data and applications:
 
-```
+``` bash
   $ docker start my_synth
 ```
 
@@ -112,7 +108,7 @@ Export your application
 
   Considering your application is called *my_app*
 
-```
+``` bash
   $ docker exec my_synth tar -zcvf public/my_app.tar.gz applications/my_app
 ```
 
