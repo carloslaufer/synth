@@ -24,17 +24,20 @@ INSTALLING
 Install JRuby (http://jruby.org) 1.6.8
 
 Install Bundler
-    $ jgem install bundler
+```
+$ jgem install bundler
+```
 
 Install dependencies
-    $ cd /path/to/synth
-    $ bundle install
-
+```
+$ cd /path/to/synth
+$ bundle install
+```
 RUNNING (Ruby 1.9)
 -------
-
-    $ jruby --1.9 -S script/server
-
+```
+$ jruby --1.9 -S script/server
+```
 Open on your internet browser: [http://localhost:3000](http://localhost:3000)
 
 RUNNING with MIRA
@@ -49,11 +52,11 @@ MIRA files
 
 * Locations:
 ``` bash
-    $ cd /path/to/synth/public/js
+$ cd /path/to/synth/public/js
 ```    
 * Path to edit your interface:
 ``` bash
-    $ edit /path/to/synth/public/js/app.js
+$ edit /path/to/synth/public/js/app.js
 ```
 * RUN your application:
     
@@ -77,7 +80,7 @@ INSTALLING WITH DOCKER
   this can take while.
 
 ```
-  $ docker run --name my_synth -p 3000:3000 tecweb/synth
+$ docker run --name my_synth -p 3000:3000 tecweb/synth
 ```
 
   
@@ -92,13 +95,13 @@ INSTALLING WITH DOCKER
 #### 5) Stop synth container:
 
 ``` bash
-  $ docker stop my_synth
+$ docker stop my_synth
 ```
   
 #### 6) Running other times to not lose your data and applications:
 
 ``` bash
-  $ docker start my_synth
+$ docker start my_synth
 ```
 
 Export your application
@@ -109,7 +112,7 @@ Export your application
   Considering your application is called *my_app*
 
 ``` bash
-  $ docker exec my_synth tar -zcvf public/my_app.tar.gz applications/my_app
+$ docker exec my_synth tar -zcvf public/my_app.tar.gz applications/my_app
 ```
 
 #### 2) Download compress file from your browser:
