@@ -25,7 +25,7 @@ Install JRuby (http://jruby.org) 1.6.8
 
 Install Bundler
 ```
-$ jgem install bundler
+$ jgem install bundler --version 1.10.6
 ```
 
 Install dependencies
